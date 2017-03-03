@@ -22,6 +22,7 @@ for article in soup.find_all('article', 'story'):
         article_title = article.h2.a.string
         outfile.write('* ' + article_title + '\n')
     except AttributeError:
+        # page has a bunch of empty tags at the bottom, skip these
         pass
 
 outfile.write('\n')
